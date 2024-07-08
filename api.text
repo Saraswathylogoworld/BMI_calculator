@@ -1,0 +1,197 @@
+API
+-----------------
+- Application Programming Interface
+- Mechanism that enables front-end and back-end to communicate with each other
+- Or back-end to any other service
+- API must follow a set of rules.
+
+Two Types of APIs
+-------------------
+1) Public APIs:
+        freely available, and we can directly use interface
+       
+2) Private APIs:
+        Internal to a company or an organisation
+        we cannot use it directly
+        Some token authentication and authentication method.
+
+Authentication and Authorization
+---------------------------------
+Authentication:
+ - It is the process of verifying the identity of a user.
+ - It is generally done using the username and password.
+
+ Authorization:
+  - It is the process of determining what an authenticated user is allowed to do
+  - something like - whether a logged user can access particular page or service
+  - authorization is mainly implemented using user roles.
+
+URL
+------
+Uniform Resource Location:
+It is the address of a location where a specific resouce is located in the internet or cloud.
+
+DNS
+-------
+Domain Name Server:
+Used for domain name to address mapping
+Protocol: Set of rules that need to be considered while sending and receiving data.
+
+Different Types of API
+----------------------
+HTTP: HyperText Transfer Protocol (most commonly used)
+FTP: File Transfer Protocol
+HTTPS: HTTP Secure (data is sent & received in encrypted form, it uses secure socket layer)
+
+HTTP Methods
+-------------------
+GET: To get data from resource.
+POST: To send data to resouce.
+DELETE: To delete data from resource.
+PUT: To update data in resource.
+
+HTTP Status code 
+----------------------------
+
+1XX - Information responce
+2XX -Success
+3XX -redirectional
+4XX -Client error
+5XX -Server side error
+
+JSON
+----------------
+- Javascript object natotion 
+- commonly used data format to sent  through internet (request/ response)
+- DAta is sent as key value pairs
+- here key must be string format 
+   eg:  {
+    "name": "jhon"
+    "age" : 78
+   }
+
+- Simple format, make communication esay.
+- Both FE and BE can easily understand the data.
+
+XML
+-------------------
+Extensible markup Language
+- more complex
+- it use tags
+
+API Architecture Type 
+--------------------------------
+- Representational state Transfer
+- most popular architecture fot createing AP
+- it uses a set of rules for building API
+- it is uses HTTP for basic CURD operation.
+CURD - Create ,read,update,delete
+
+1)SOAP
+-Simple object access Protocol
+
+2)PC 
+-Remote procedure Call
+
+API Testing tools
+--------------------------
+1)Thunder Client : vs extension 
+2)postman
+
+Synchronous functions and asynchronous functions
+-------------------------------------------------------------
+Synchronous functions
+-------------------------------
+1) Synchronous functions are  excuted  in sequence
+2) Each operation must complete before next one begin
+3) if Synchronous functions contains long- running task (like loop,complex calculation,api fetch)
+it will block the execution of subsequence code,until the task is finished
+
+
+ASynchronous functions
+--------------------------------
+1)it take some time to execute
+2)it allow the program to continue execting other tasks while waiting for asynchronous operation to complete
+
+
+it JS single threaded or Multi threaded
+-------------------------------------------
+Primary js is single threaded
+it can execute only one operation at a time
+CAllstack  in js engine in execting the code
+js consists of only single callback
+
+How js handle asynchronous operation
+----------------------------------------------
+1)callback
+2)microtask queue
+3)callback queue
+4)Event loop
+
+
+note
+---------------
+during the execution phase of js first adds all the asynchronous operation to callback,call stack is actually
+executing the js code ,when js finds any asynchronous functions like timer method(ex: setIntervel. setTimeout) or API calls,
+file read or write, js taken away that asynchronous funs from normal execution flow and add to Queue ,then continue with the next line,
+There are 2 Queue
+1)Microtask Queue
+2)Callback Queue
+microtask hlod api call,callback queue hlod callback Microtask queue has high priority
+
+Event loop
+--------------
+it controls all the operations  it is an infinte loop that runs in the background,continuosly checking whether callback is empty or not.
+If empty, it first checks the microtask queue,if there are any items in the microtask queue,
+event will be add  that item into callback.When microtask queue becomes empty,
+eventloop checks the callback queue.
+
+Different API Calling method
+----------------------------------
+Ajax
+fetch
+Async await
+---------------------------------
+
+Note 04/07/2024
+
+1) Ajax
+------------
+- Asynchronous javascript XML
+- it make use of a inbuilt class in javascript : XMLHttpRequest
+- 1) first we create an object of the above class to access methods and properties of that class
+      const http= new XMLHttpRequest()
+- 2) call open() for connection establishment
+        http.open('method','url')
+- 3) send request
+        http.send()
+
+Ready State 
+-----------------
+- Ready state are important concept while working on Ajax request
+- It indicates the state of ajax request
+- its value ranges from 0 to 4
+- it allows user to track the progress of Ajax request
+        0 : unsent state
+        1 : open state
+        2 : header set state
+        3 : loading state
+        4 : done state
+
+2) fetch
+        promise
+        ---------
+        - it make use of promise concept
+        - promise is used to manage asynchronous functions/operations
+        - promise represents an eventual completion of an asynchronous operation
+        - it has three states
+                1) pending - in progress
+                2) resolve - fulfilled/done
+                3) reject - failure state
+
+        -we are calling asynchronous function inside promise,after completion of that asynchronous function , if it is success it uses resolve() method to send back the response, if it is failure,
+        it users reject() method to send back the error   
+        .then() method is used
+
+
+
